@@ -1,0 +1,20 @@
+<li>
+  <strong><%= place.title %></strong> | <%= link_to 'Edit place', edit_place_path(place) %><br>
+  <% if place.addresses.any? %>
+    Addresses:
+    <ul>
+      <% place.addresses.each do |addr| %>
+        <li>
+          <%= addr.city %>, <%= addr.street %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content"></div>
+    </div>
+  </div>
+
+</li>
+<%= button_to 'Add release', new_release_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>

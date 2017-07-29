@@ -1,0 +1,5 @@
+//$("#modal-window").html("<%= escape_javascript(render 'places/new_release') %>");
+
+//$("#modal-window").find(".modal-content").html("<%= j (render 'places/new_release') %>");
+$("#modal-window").find(".modal-content").html("<%= escape_javascript(render 'places/new_address') %>");
+$("#modal-window").modal('show');

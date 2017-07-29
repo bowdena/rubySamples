@@ -1,0 +1,40 @@
+<%= form_for @place do |f| %>
+  <%= render 'shared/errors', object: @place %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <p><strong>Addresses:</strong></p>
+
+    <div id="addresses">
+      <%= f.fields_for :addresses do |address| %>
+        <%= render 'address_fields', f: address %>
+      <% end %>
+
+      <div class="links">
+        <%= link_to_add_association 'add address', f, :addresses, class: 'btn btn-primary btn-xs', data: {toggle: "modal", target: "#modal-window"}  %>
+        <%=# link_to_add_association 'add address', f, :addresses, class: 'btn btn-primary btn-xs'
+        %>
+      </div>
+
+      <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content"></div>
+        </div>
+      </div>
+
+      <%= link_to 'Add modal and create link', new_address_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
+
+
+      <p class="count">Total: <span><%= @place.addresses.count %></span></p>
+      <!-- this works if the city is present -->
+      <p class="city">City: <span><%= #@place.addresses.first.city
+        %></span></p>
+    </div>
+  </div>
+
+  <%= f.submit %>
+<% end %>
