@@ -21,3 +21,11 @@
 /yarn-error.log
 
 .byebug_history
+
+# match files anywhere in the project
+**/log
+**/tmp
+**/db/*.sqlite3
+**/db/*.sqlite3-journal
+
+
