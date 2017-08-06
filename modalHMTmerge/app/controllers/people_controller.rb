@@ -20,9 +20,12 @@ class PeopleController < ApplicationController
   def new
 		# because of the model that is used, new is called from index.  
 		# disabling to make this clear.
-    #@person = Person.new
-		#@person.cars.build
-		#@person.loans.build.build_car
+
+		# not needed when the modal is called from /people
+		# but if you need /people/new then you definately do.
+    @person = Person.new
+		@person.cars.build
+		@person.loans.build.build_car
   end
 
   # GET /people/1/edit
