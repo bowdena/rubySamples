@@ -18,10 +18,11 @@ class PeopleController < ApplicationController
 
   # GET /people/new
   def new
-    @person = Person.new
-		
-		@person.cars.build
-		@person.loans.build.build_car
+		# because of the model that is used, new is called from index.  
+		# disabling to make this clear.
+    #@person = Person.new
+		#@person.cars.build
+		#@person.loans.build.build_car
   end
 
   # GET /people/1/edit
