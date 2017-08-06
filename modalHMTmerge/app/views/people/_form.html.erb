@@ -1,0 +1,51 @@
+<%# Conditionally set remote: true. Also, passing model name as data attribute %>
+<% modal ||= false %>
+<% remote = modal ? true : false %>
+<%= form_for(@person, remote: remote, html: {role: :form, 'data-model' => 'person'}) do |person_form| 
+%>
+<%= #form_for(@person) do |person_form| 
+%>
+
+  <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+      <% @person.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%# Added Bootstrap classes, and help-block container for error messages %>
+  <div class="form-group">
+    <%= person_form.label :first_name, class: 'control-label' %><br>
+    <%= person_form.text_field :first_name, class: 'form-control' %>
+    <span class="help-block"></span>
+  </div>
+
+  <%# Added Bootstrap classes, and help-block container for error messages %>
+  <div class="form-group">
+    <%= person_form.label :last_name, class: 'control-label' %><br>
+    <%= person_form.text_field :last_name, class: 'form-control' %>
+    <span class="help-block"></span>
+  </div>
+
+	<%= person_form.fields_for :loans do |loan_form| %>
+		<%= loan_form.label :comment, class: 'control-label' %>
+		<%= loan_form.text_field :comment, class: 'form-control', id: :loan_comment %>
+    <span class="help-block"></span>
+		<%= loan_form.fields_for :car do |car_form| %>
+			<%= car_form.label :cartype, class: 'control-label' %>
+			<%= car_form.text_field :cartype, class: 'form-control', id: :car_type %>
+    	<span class="help-block"></span>
+		<% end %>
+	<% end %>
+
+  <%# Added Bootstrap classes %>
+  <div class="actions">
+    <%= person_form.submit 'Submit', class: 'btn btn-default' %>
+  </div>
+
+<% end %>
