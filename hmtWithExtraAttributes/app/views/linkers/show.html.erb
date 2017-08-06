@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @linker.topic %>
+</p>
+
+<p>
+  <strong>Article:</strong>
+  <%= @linker.article %>
+</p>
+
+<p>
+  <strong>Relevance:</strong>
+  <%= @linker.relevance %>
+</p>
+
+<%= link_to 'Edit', edit_linker_path(@linker) %> |
+<%= link_to 'Back', linkers_path %>
