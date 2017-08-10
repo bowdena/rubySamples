@@ -1,11 +1,20 @@
 <div class="nested-fields">
-  <%= f.label :city %>
-  <%= f.text_field :city %>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"> Add a new address                          (or <%= link_to_remove_association "remove address", f %> )</h3>
 
-  <%= f.label :street %>
-  <%= f.text_field :street %>
+          <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+        </div>
+        <div class="panel-body">
+          <%= f.label :city %>
+          <%= f.text_field :city %>
 
-  <%= f.check_box :_destroy %>
+          <%= f.label :street %>
+          <%= f.text_field :street %>
 
-  <%= link_to_remove_association "remove address", f %>
+          <%= f.check_box :_destroy %>
+
+
+        </div>
+    </div>
 </div>

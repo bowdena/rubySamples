@@ -1,6 +1,14 @@
-.nested-fields{
+/*.nested-fields{
   display: block;
   background-color: aliceblue;
   border: 1px solid navy;
   border-radius: 4px;
+}*/
+.clickable{
+  cursor: pointer;
+}
+
+.panel-heading span {
+  margin-top: -20px;
+  font-size: 15px;
 }
