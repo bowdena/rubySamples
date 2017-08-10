@@ -15,8 +15,9 @@
       <% end %>
 
       <div class="links">
-        <%= link_to_add_association 'add address', f, :addresses, class: 'btn btn-primary btn-xs', data: {toggle: "modal", target: "#modal-window"}  %>
-        <%=# link_to_add_association 'add address', f, :addresses, class: 'btn btn-primary btn-xs'
+        <%= #link_to_add_association 'add address', f, :addresses, class: 'btn btn-primary btn-xs', data: {toggle: "modal", target: "#modal-window"}  
+%>
+        <%= link_to_add_association 'add address', f, :addresses, class: 'btn btn-primary btn-xs'
         %>
       </div>
 
@@ -26,7 +27,8 @@
         </div>
       </div>
 
-      <%= link_to 'Add modal and create link', new_address_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
+      <%= # link_to 'Add modal and create link', new_address_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  
+%>
 
 
       <p class="count">Total: <span><%= @place.addresses.count %></span></p>
